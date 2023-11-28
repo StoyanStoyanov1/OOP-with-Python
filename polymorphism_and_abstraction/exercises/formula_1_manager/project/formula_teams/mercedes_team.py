@@ -1,0 +1,14 @@
+from exams.exam_10_december_2022.project import FormulaTeam
+
+
+class MercedesTeam(FormulaTeam):
+
+    def sponsors(self):
+        return {"Petronas": {1: 1_000_000,
+                             3: 500_000},
+                "TeamViewer": {5: 100_000,
+                               7: 50_000}}
+
+    @property
+    def expenses_for_one_race(self):
+        return 200_000
