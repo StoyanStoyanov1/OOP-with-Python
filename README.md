@@ -1,1 +1,4 @@
-# OOP
+ <h1>About the Course</h1>
+    <p>The 'Python OOP' course will teach students the principles of object-oriented programming (OOP), working with classes and objects, using object-oriented modeling, and building class hierarchies. The fundamental principles of OOP such as abstraction (interfaces, abstract classes), encapsulation, inheritance, and polymorphism will be studied. Students will delve into the most commonly used design patterns (creational, structural, and behavioral design patterns). They will become acquainted with the SOLID principles of object-oriented software design. They will learn about iterators and generators and how to use them. They will learn how to create and use decorators. Attention will be given to component testing (writing unit tests) and the concept of Test Driven Development (TDD).</p>
+    <p>This is the work I have done during this course, which has been assigned by SoftUni and tested <a href="https://judge.softuni.org/Contests/#!/List/ByCategory/198/Python-OOP">here</a>.</p>
+    <p>You can find the course <a href="https://softuni.bg/trainings/4233/python-oop-october-2023#lesson-59542">here</a>.</p>
