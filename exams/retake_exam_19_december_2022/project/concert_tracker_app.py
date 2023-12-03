@@ -21,6 +21,7 @@ class ConcertTrackerApp:
             raise Exception(f"{name} is already a musician!")
 
         new_musician = self.VALID_MUSICIAN_TYPES[musician_type](name, age)
+
         self.musicians.append(new_musician)
         return f"{name} is now a {musician_type}."
 
@@ -79,31 +80,35 @@ class ConcertTrackerApp:
         if not drummer or not singer or not guitarist:
             raise Exception(f"{band_name} can't start the concert because it doesn't have enough members!")
 
-        if (self._play_concert()[concert.genre]["Drummer"] not in drummer.skills
-                or any(x not in singer.skills for x in self._play_concert()[concert.genre]["Singer"])
-                or self._play_concert()[concert.genre]["Guitarist"] not in guitarist.skills):
+        if self._play_concert()[concert.genre]["Drummer"] not in drummer.skills or any(
+                skill not in singer.skills for skill in self._play_concert()[concert.genre]["Singer"]) or \
+                self._play_concert()[concert.genre]["Guitarist"] not in guitarist.skills:
             raise Exception(f"The {band_name} band is not ready to play at the concert!")
 
         profit = concert.audience * concert.ticket_price - concert.expenses
 
         return f"{band_name} gained {profit:.2f}$ from the {concert.genre} concert in {concert.place}."
 
-    def _find_by_name(self, name, arr):
+    @staticmethod
+    def _find_by_name(name, arr):
         for el in arr:
             if el.name == name:
                 return el
 
-    def _find_by_place(self, place, arr):
+    @staticmethod
+    def _find_by_place(place, arr):
         for concert in arr:
             if concert.place == place:
                 return concert
 
-    def _find_musical_by_type(self, current_type, arr):
+    @staticmethod
+    def _find_musical_by_type(current_type, arr):
         for musician in arr:
             if musician.__class__.__name__ == current_type:
                 return musician
 
-    def _play_concert(self):
+    @staticmethod
+    def _play_concert():
         return {"Rock": {
             "Drummer": "play the drums with drumsticks",
             "Singer": ["sing high pitch notes"],
